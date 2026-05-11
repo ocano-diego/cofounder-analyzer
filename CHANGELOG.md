@@ -12,7 +12,7 @@ Initial public release.
 ### Added
 
 - Side-panel UI scoped to `startupschool.org` tabs only.
-- Floating pill on YC pages that opens the side panel.
+- Floating pill on Startup School pages that opens the side panel.
 - Project-context textarea: paste any plain-text description of your project.
 - AI-distilled evaluation dimensions, reorderable by priority.
 - Free-text hard requirements.

@@ -1,7 +1,7 @@
 {
   "name": "cofounder-analyzer",
-  "displayName": "YC Co-Founder Analyzer",
-  "description": "Chrome extension that scores YC Startup School co-founder profiles against your project context using Claude or Gemini.",
+  "displayName": "CoFounder Analyzer",
+  "description": "Chrome extension that scores co-founder profiles against your project context using Claude or Gemini.",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",

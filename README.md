@@ -1,10 +1,14 @@
-# YC Co-Founder Analyzer
+# CoFounder Analyzer
 
-A Chrome extension that helps you triage co-founder profiles on
-[Y Combinator's Startup School co-founder matching](https://www.startupschool.org/cofounder-matching)
+A Chrome extension that helps you triage co-founder profiles on the
+[Startup School co-founder matching site](https://www.startupschool.org/cofounder-matching)
 using Claude or Gemini. You describe your project once; the extension distills
 what matters, then scores every profile you visit against those dimensions —
 instantly, with cited evidence.
+
+> Not affiliated with, endorsed by, or sponsored by Y Combinator or Startup
+> School. Names referenced in this project are used descriptively to indicate
+> where the extension runs.
 
 > Built with [WXT](https://wxt.dev) + React + TypeScript. MIT licensed.
 
@@ -13,7 +17,7 @@ instantly, with cited evidence.
 - **Distills evaluation dimensions** from your project description. Paste a
   blurb about your idea, your strengths, and what you're missing — the model
   proposes 5–8 weighted dimensions to look for in a co-founder.
-- **Scores profiles in one click.** Open a candidate on YC, open the side
+- **Scores profiles in one click.** Open a candidate profile, open the side
   panel, click *Analyze* — get a verdict (Worth it / Maybe / Skip), a 0–100
   score, and a row-by-row breakdown with green-check / red-x / gray-question
   icons.
@@ -39,8 +43,8 @@ instantly, with cited evidence.
 2. Open `chrome://extensions`, enable **Developer mode** (top-right).
 3. Click **Load unpacked**, pick `.output/chrome-mv3`.
 4. Visit any [startupschool.org/cofounder-matching](https://www.startupschool.org/cofounder-matching)
-   page. An orange **YC Analyzer** pill appears top-right — click it to open
-   the side panel. (Or click the toolbar icon directly.)
+   page. An orange **CoFounder Analyzer** pill appears top-right — click it
+   to open the side panel. (Or click the toolbar icon directly.)
 
 ## Quick start
 
@@ -72,15 +76,15 @@ plumbing. See the [WXT docs](https://wxt.dev) for the broader system.
 entrypoints/
   background.ts          service worker; URL-scopes the side panel,
                          dispatches API calls, handles OPEN_SIDEPANEL
-  content/index.ts       6 KB vanilla TS: floating pill on YC pages +
-                         profile scraper that responds to runtime messages
+  content/index.ts       6 KB vanilla TS: floating pill on Startup School
+                         pages + profile scraper that responds to runtime messages
   sidepanel/             React UI — settings, dimensions, requirements,
                          profile evaluation, cache, session export
 utils/
   anthropic.ts           Claude messages + models list
   gemini.ts              Gemini generateContent + models list
   llm.ts                 provider-agnostic prompts + JSON repair
-  scrape.ts              extracts candidate profile text from YC DOM
+  scrape.ts              extracts candidate profile text from the matching DOM
   storage.ts             chrome.storage.local wrapper with migration
   export.ts              builds the Markdown session export
   types.ts               shared types
@@ -89,8 +93,8 @@ components/Icon.tsx      gradient SVG status icons + verdict badge
 
 The side panel is **enabled per-tab**. On non-startupschool.org tabs,
 `chrome.sidePanel.setOptions({ enabled: false })` runs and the toolbar
-icon does nothing. On YC tabs the panel is enabled and the action click
-opens it.
+icon does nothing. On allowed tabs the panel is enabled and the action
+click opens it.
 
 The content script never holds any UI of its own beyond the pill — it
 exists to scrape the candidate DOM and broadcast `PROFILE_CHANGED`
@@ -115,10 +119,11 @@ and `utils/gemini.ts`.
 ## Customizing for other matching platforms
 
 The DOM scraper lives in `utils/scrape.ts:findCandidateRoot`. It looks for
-YC's `CofounderMatchingCandidate` React component marker, with a fallback to
-the nearest tabular ancestor of an `<h1>`. To target a different matching
-platform, replace that function and update the host in `wxt.config.ts`
-+ the `ALLOWED_HOST` constant in `entrypoints/background.ts`.
+the `CofounderMatchingCandidate` React component marker on the Startup
+School page, with a fallback to the nearest tabular ancestor of an `<h1>`.
+To target a different matching platform, replace that function and update
+the host in `wxt.config.ts` + the `ALLOWED_HOST` constant in
+`entrypoints/background.ts`.
 
 ## Contributing
 

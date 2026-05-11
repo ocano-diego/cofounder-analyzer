@@ -93,7 +93,7 @@ function extractJson<T>(raw: string): T {
   );
 }
 
-const CONTEXT_SYSTEM = `You are an expert YC co-founder matching analyst. The user will share a description of their project, vision, and what they need. Your job: distill the 5-8 most important dimensions they should evaluate prospective co-founders on.
+const CONTEXT_SYSTEM = `You are an expert co-founder matching analyst. The user will share a description of their project, vision, and what they need. Your job: distill the 5-8 most important dimensions they should evaluate prospective co-founders on.
 
 Return a strict JSON array. Each item: { "label": "<short dimension name, 2-5 words>", "why": "<one sentence on why this matters for THIS project>" }.
 
@@ -121,7 +121,7 @@ const EVAL_SYSTEM = `You are an expert co-founder vetting analyst. The user will
 1. Their project context (markdown).
 2. A prioritized list of dimensions (most important first).
 3. Custom hard requirements (optional).
-4. A YC co-founder candidate's profile text.
+4. A co-founder candidate's profile text.
 
 Evaluate the candidate against EACH dimension and EACH requirement. For each, output a status:
 - "met" — clear positive evidence in the profile

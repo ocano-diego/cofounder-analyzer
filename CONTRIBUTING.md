@@ -35,8 +35,8 @@ There are no automated tests yet. To verify a change:
 
 If you're touching the DOM scraper, paste a representative chunk of the
 candidate page's HTML and walk through `findCandidateRoot` / `extractProfileText`
-manually — the scrape is the most YC-coupled part of the codebase and the
-class names rotate.
+manually — the scrape is the most platform-coupled part of the codebase
+and the class names rotate.
 
 ## Coding style
 
@@ -60,8 +60,8 @@ class names rotate.
 
 - A backend. This is BYO-key by design; we don't run an API.
 - Profile data collection or analytics. No telemetry will be added.
-- Auto-messaging, auto-skip, or anything that interacts with YC on your
-  behalf. The extension is read-only with respect to YC.
+- Auto-messaging, auto-skip, or anything that interacts with the matching
+  site on your behalf. The extension is read-only with respect to the site.
 
 ## Releasing
 

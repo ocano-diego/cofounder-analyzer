@@ -308,7 +308,7 @@ export default function App() {
         <div className="yca-title">
           <SparkIcon size={14} />
           <span>
-            <span className="accent">YC</span> Analyzer
+            <span className="accent">Co</span>Founder Analyzer
           </span>
           {settings.evaluations.length > 0 && (
             <span className="yca-cache-count">{settings.evaluations.length}</span>

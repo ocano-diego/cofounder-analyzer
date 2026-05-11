@@ -35,9 +35,9 @@ function wireProfileMessaging(): void {
 }
 
 function mountPill(): void {
-  if (document.getElementById('yc-analyzer-pill-host')) return;
+  if (document.getElementById('cofounder-analyzer-pill-host')) return;
   const host = document.createElement('div');
-  host.id = 'yc-analyzer-pill-host';
+  host.id = 'cofounder-analyzer-pill-host';
   host.style.cssText =
     'all: initial; position: fixed; top: 16px; right: 16px; z-index: 2147483646;';
   const shadow = host.attachShadow({ mode: 'open' });
@@ -67,7 +67,7 @@ function mountPill(): void {
   const btn = document.createElement('button');
   btn.className = 'pill';
   btn.type = 'button';
-  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden><path d="M12 2l1.8 5.8L19.5 9.5l-5.7 1.8L12 17l-1.8-5.7L4.5 9.5l5.7-1.7L12 2z" fill="currentColor"/></svg> YC Analyzer`;
+  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden><path d="M12 2l1.8 5.8L19.5 9.5l-5.7 1.8L12 17l-1.8-5.7L4.5 9.5l5.7-1.7L12 2z" fill="currentColor"/></svg> CoFounder Analyzer`;
   btn.addEventListener('click', () => {
     chrome.runtime.sendMessage({ type: 'OPEN_SIDEPANEL' }).catch((err) => {
       console.warn('OPEN_SIDEPANEL failed', err);

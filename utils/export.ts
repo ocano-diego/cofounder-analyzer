@@ -14,7 +14,7 @@ const VERDICT_LABEL = {
 
 export function buildSessionExport(s: ExtensionSettings): string {
   const lines: string[] = [];
-  lines.push('# YC Co-Founder Analyzer — Session Export');
+  lines.push('# CoFounder Analyzer — Session Export');
   lines.push('');
   lines.push(`Exported ${new Date().toISOString()}`);
   lines.push('');
