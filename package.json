@@ -1,8 +1,34 @@
 {
-  "name": "wxt-react-starter",
-  "description": "manifest.json description",
+  "name": "cofounder-analyzer",
+  "displayName": "YC Co-Founder Analyzer",
+  "description": "Chrome extension that scores YC Startup School co-founder profiles against your project context using Claude or Gemini.",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Diego Ocano",
+    "url": "https://github.com/ocano-diego"
+  },
+  "homepage": "https://github.com/ocano-diego/cofounder-analyzer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocano-diego/cofounder-analyzer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ocano-diego/cofounder-analyzer/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "yc",
+    "y-combinator",
+    "startup-school",
+    "co-founder",
+    "co-founder-matching",
+    "anthropic",
+    "claude",
+    "gemini",
+    "wxt"
+  ],
   "type": "module",
   "scripts": {
     "dev": "wxt",
